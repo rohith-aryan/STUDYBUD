@@ -1,16 +1,11 @@
 {
-    "builds": [{
-        "src": "studybud/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    }],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "studybud//wsgi.py"
-        }
-    ] 
-    "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "version": 2,
+  "builds": [
+    { "src": "studybud/api/*.py", "use": "@vercel/python" },
+    { "src": "studybud/frontend/package.json", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "studybud/api/index.py" },
+    { "src": "/(.*)", "dest": "studybud/frontend/public/$1", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } }
   ]
 }
