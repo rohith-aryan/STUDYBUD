@@ -8,4 +8,7 @@
     { "src": "/api/(.*)", "dest": "studybud/api/index.py" },
     { "src": "/(.*)", "dest": "studybud/frontend/public/$1", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } }
   ]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
