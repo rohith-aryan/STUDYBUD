@@ -10,4 +10,7 @@
             "dest": "studybud//wsgi.py"
         }
     ] 
+    "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
